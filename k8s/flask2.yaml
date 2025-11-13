@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask2
+  template:
+    metadata:
+      labels:
+        app: flask2
+    spec:
+      containers:
+      - name: flask2
+        image: yny.ocir.io/axvejxrm1ole/flask2:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask2-service
+spec:
+  selector:
+    app: flask2
+  ports:
+  - port: 5000
+    targetPort: 5000
