@@ -22,8 +22,11 @@ pipeline {
 
         stage('OCIR Login') {
             steps {
-                sh 'docker login yny.ocir.io -u "axvejxrm1ole/
-s7074529@gachon.ac.kr" -p "e3d26d311e2e4d9a80444b829b1202a5"'
+                withCredentials([usernamePassword(credentialsId: 'ocir-cred', usernameVariable: 'OCIR_USER', passwordVariable: 'OCIR_PASS')]) {
+                    sh '''
+                        docker login yny.ocir.io -u "$OCIR_USER" -p "$OCIR_PASS"
+                    '''
+                }
             }
         }
 
