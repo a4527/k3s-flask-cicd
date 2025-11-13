@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/a4527/k3s-flask-cicd'
+                git branch: 'main', url: 'https://github.com/a4527/k3s-flask-cicd'
             }
         }
 
