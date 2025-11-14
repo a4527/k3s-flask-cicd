@@ -9,14 +9,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /app1
+      - path: /app1/
         pathType: Prefix
         backend:
           service:
             name: flask1-service
             port:
               number: 5000
-      - path: /app2
+      - path: /app2/
         pathType: Prefix
         backend:
           service:
