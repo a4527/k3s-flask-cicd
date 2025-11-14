@@ -12,6 +12,8 @@ spec:
       labels:
         app: flask1
     spec:
+      imagePullSecrets:
+        - name: ocirsecret
       containers:
       - name: flask1
         image: yny.ocir.io/axvejxrm1ole/flask1:latest
